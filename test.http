@@ -1,0 +1,46 @@
+// ping call for server
+
+GET http://localhost:3000/api/ping
+
+
+
+// register request to server
+###
+POST http://localhost:3000/api/auth/register
+content-type: application/json
+
+{
+    "firstName":"Malik",
+    "lastName":"Haider",
+    "email":"mh@gmail.com",
+    "nickName":"ali",
+    "password":"aA!12345",
+    "phone":"+923017977929"
+}
+
+###
+POST http://localhost:3000/api/auth/login
+content-type: application/json
+
+{
+    "email":"mh@gmail.com",
+    "password":"aA!12345"
+}
+
+
+###
+GET http://localhost:3000/api/auth/me
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoibWhAZ21haWwuY29tIiwiaWF0IjoxNzI4NzM4MzA1LCJleHAiOjE3Mjg4MjQ3MDV9.q9mHconSp0VygGkEbWMT4An0VQzKy_7E7wgbcCykHmk
+
+
+
+
+###
+GET http://localhost:3000/items
+Content-Type: application/json
+Authorization: Bearer  mongodb+srv://malikhaiderali33:4CSbYQgjbSjFvyPT@cluster0.ebjjkkh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+{
+    "message":"Mongo Starter"
+}
