@@ -1,21 +1,17 @@
 // ping call for server
 
-GET http://localhost:3000/api/ping
+GET http://localhost:3000/chat
 
 
 
 // register request to server
 ###
-POST http://localhost:3000/api/auth/register
+POST http://localhost:3000/save
 content-type: application/json
 
 {
-    "firstName":"Malik",
-    "lastName":"Haider",
-    "email":"mh@gmail.com",
-    "nickName":"ali",
-    "password":"aA!12345",
-    "phone":"+923017977929"
+    "key":"test",
+    "data":"test"
 }
 
 ###

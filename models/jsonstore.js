@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Elements extends Model {
+  class JsonStore extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,13 +13,19 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Elements.init({
-    parentId: DataTypes.INTEGER,
-    attributes: DataTypes.JSONB,
-    innerText: DataTypes.TEXT
+  JsonStore.init({
+    key: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
+    data: {
+      type: DataTypes.JSONB,
+      allowNull: false
+    }
   }, {
     sequelize,
-    modelName: 'Elements',
+    modelName: 'JsonStore',
   });
-  return Elements;
+  return JsonStore;
 };

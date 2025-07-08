@@ -2,21 +2,18 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Elements', {
+    await queryInterface.createTable('JsonStores', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      parentId: {
-        type: Sequelize.INTEGER
+      key: {
+        type: Sequelize.STRING
       },
-      attributes: {
+      data: {
         type: Sequelize.JSONB
-      },
-      innerText: {
-        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
@@ -29,6 +26,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Elements');
+    await queryInterface.dropTable('JsonStores');
   }
 };

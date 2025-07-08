@@ -1,7 +1,7 @@
 // routes/index.js
 const express = require('express');
 const multer = require('multer');
-const { uploadFileController } = require('../controllers/upload');
+const { uploadFileController, chatController, saveJsonController } = require('../controllers');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -21,5 +21,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.post('/upload', upload.single('file'), uploadFileController)
+
+
+router.get('/chat', chatController);
+
+router.post('/save', saveJsonController)
 
 module.exports = router;
